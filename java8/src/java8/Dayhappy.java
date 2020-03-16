@@ -7,6 +7,7 @@ public class Dayhappy {
 	public static void main (String[] args) {
 		Scanner ch = new Scanner(System.in);
 		String name = "";
+		//ë„¤ì„ì€ ë¬¸ìì—´ë¡œ í•  ê²ƒì´ë‹¤.
 		
 		
 		int happy = 0;
@@ -15,10 +16,10 @@ public class Dayhappy {
 		
 		
 		
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä:");
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”:");
 		name = ch.next();
-		System.out.println("Â¦Â¦Â¦!" + name + "´ÔÀÇ ¿À´ÃÀÇ Çà¿îÀº");
-		System.out.println(happy + "%ÀÔ´Ï´Ù.");
+		System.out.println("ì§ì§ì§!" + name + "ë‹˜ì˜ ì˜¤ëŠ˜ì˜ í–‰ìš´ì€");
+		System.out.println(happy + "%ì…ë‹ˆë‹¤.");
 		
 		
 		ch.close();
