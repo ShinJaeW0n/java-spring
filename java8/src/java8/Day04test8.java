@@ -22,7 +22,7 @@ public class Day04test8 {
 		String result = n >= m ? stra : strb ; 
 		System.out.println("결과: " + result);
 		
-		//System.out.println("n의 값: " + n + "m의 값" + m);
+		//System.out.println("n의 값: " + n + "m의 값: " + m);
 		//int x = (n>m)? n:m;
 		//System.out.println("결과:" + x); 
 		
