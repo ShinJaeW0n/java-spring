@@ -9,10 +9,10 @@ public class Day0310 {
 		
 		
 	
-		System.out.println("수도입니까?(수도:1 , 수도아님:0 - ");
+		System.out.print("수도입니까?(수도:1 , 수도아님:0 - ");
 		int capital = sc.nextInt();
 		boolean isCapital = capital == 0 ? false : true;
-		//0은 false 다른 숫자는 true 라 봄.
+		//0은 false 다른 숫자는 true 라고본다.
 		
 		
 		System.out.println("인구(단위:만) - ");
