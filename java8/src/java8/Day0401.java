@@ -18,13 +18,13 @@ public class Day0401 {
 		int res4 = ~b; //비트 반전 -5에 -1 한 값. 비트 논리연산자.
 		System.out.println(res4);
 		
-		int res5 = res4 << 1;
+		int res5 = res4 << 1; //-6에서 2를 곱한값.
 		System.out.println(res5);
 		
 		int res6 = res4 >> 1;
 		System.out.println(res6);
 		
-		int res7 = res4>>> 1; 
+		int res7 = res4>>> 1; //맨 앞의 숫자를 1로 해놓았는데 어마어마한 숫자가 나온다(?)
 		System.out.println(res7);
 		
 		//비트논리연산자
