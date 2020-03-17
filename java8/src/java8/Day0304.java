@@ -31,7 +31,7 @@ public class Day0304 {
 		int num3 = rd.nextInt();
 		System.out.println(num3); //int 범위안의 숫자들이 랜덤으로 나옴.
 		int res9 = Math.abs(num3) % 45 + 1; //Math.abs 무조건 양수로 나오게 함.
-		//0부터 45까지 나오게함. +1은 1부터 45까지 나오게 하려고
+		//0부터 45까지 나오게함. +1은 1부 터 45까지 나오게 하려고
 		
 		
 		System.out.println(res9);
