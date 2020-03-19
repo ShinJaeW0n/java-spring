@@ -35,12 +35,12 @@ public class Day05test2 {
 			
 			default:
 				user = "error";
-				System.out.println("잘 못 입력하셨습니다."); // 없어도됨.
+				System.out.println("잘 못 입력하셨습니다."); 
 		}
 		
 		if(user == "error") {
-			System.out.println("잘 못 입력하셨습니다. 프로그램을 종료합니다.");
-			System.exit(0);
+			System.out.println("잘 못 입력하셨습니다. 프로그램을 종료합니다."); // 없어도됨. 이미 위에 입력 해놔서.
+			System.exit(0); // 시스템을 종료하는 구문.
 		}
 		
 		
@@ -68,7 +68,7 @@ public class Day05test2 {
 		} else if ( user==com) { System.out.println("비겼습니다! 사람 : " + user + ", 컴퓨터 : " + com);
 		
 		}else {
-			System.out.println("컴퓨터 승! 사람:  " + user + " ,컴퓨터: " + com);
+			System.out.println("컴퓨터 승! 사람: " + user + " ,컴퓨터: " + com);
 		}
 		
 		
