@@ -62,10 +62,17 @@ public class Day05test2 {
 		}
 		
 		//이 3가지 경우엔 사람이 승.
-		if((user == bo && com == ba) || (user == ga && com == bo) || (user == ba && com == ga)) 
+		//if((user == bo && com == ba) || (user == ga && com == bo) || (user == ba && com == ga)) //이거 좀 잘못됨. 기본형이면 맞는데,
+		if((user.equals(bo) && com.equals(ba)) || (user.equals(ga) && com.equals(bo)) || (user.equals(ba) && com.equals(ga)))	
+		
+		//기본자료형이 아니고 참조형일 경우 왼쪽의 값 주소와 오른쪽 값 주소가 같냐라고 물어보는것.
+			//== : (기본형)왼쪽과 오른쪽 값이 같은지 물어보는 것. 
+			//== : (문자열은 기본형이 아니다.)값의 주소가 같은지 물어보는 것.
+			//String ga ba bo 를 user와 com이 우연히 같은 주소를 공유했기 때문에 이건 그냥 넘어가게 됬던것. 원래는 저렇게 하면 안됨.
+			//주소가 다른 기본형의 경우 equals를 사용해야함. ex)str2.equals(str3); = true, 자바는 객체와 객체의 비교는 equals를 이용함.
 		{
 			System.out.println("사람 승! 사람 : " + user + ", 컴퓨터 : " + com);
-		} else if ( user==com) { System.out.println("비겼습니다! 사람 : " + user + ", 컴퓨터 : " + com);
+		} else if ( user.equals(com)) { System.out.println("비겼습니다! 사람 : " + user + ", 컴퓨터 : " + com);
 		
 		}else {
 			System.out.println("컴퓨터 승! 사람: " + user + " ,컴퓨터: " + com);
