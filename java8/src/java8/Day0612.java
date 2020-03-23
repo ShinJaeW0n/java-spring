@@ -17,7 +17,7 @@ public class Day0612 {
 			inputString = sc.nextLine(); //한줄입력
 			System.out.println(inputString);
 			
-		}while (!inputString.equals("q"));//!인풋에 저장된게 q가 아니라면
+		}while (!inputString.equals("q"));//!인풋에 저장된게 q가 아니라면 while(계속 반복)
 		System.out.println();
 		System.out.println("프로그램 종료");
 		
