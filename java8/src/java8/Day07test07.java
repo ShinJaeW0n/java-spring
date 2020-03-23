@@ -15,6 +15,8 @@ public class Day07test07 {
 		}
 		System.out.println("1부터 50까지 중 3의 배수의 개수는? : " + cnt);
 		
+
+	//이건 내가 한거임. 다 틀린것.
 //		int sum = 0;
 //		
 //		for(int i = 0; i <=50; i++) {
