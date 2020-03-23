@@ -1,0 +1,21 @@
+package java8;
+
+import java.util.Scanner;
+
+public class Day07test11 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇 줄을 출력 하시겠습니까? : ");
+		int line = sc.nextInt();
+		
+		for (int i = 0; i < line ; i++) {
+			for(int j = 0; j <= i; j++) {
+			System.out.print("$");
+		}
+			
+			System.out.println(); //이것을 해줘야 반복하면서 다음으로 띄어쓰기가 된다.
+		
+		}
+		sc.close();
+	}
+}
