@@ -19,9 +19,10 @@ public class Day0501 {
 			result = "짝수";
 			System.out.println("짝수인지 판별 중입니다.");
 			}
-		if (inputNumber % 2 != 0) { result = "홀수";
-		System.out.println("짝수인지 판별 중입니다.");}
-//if문은 중첩이 가능해 여러줄을 쓸 수 있다.
+		if (inputNumber % 2 != 0) 
+		{ result = "홀수";
+		System.out.println("홀수인지 판별 중입니다.");}
+			//if문은 중첩이 가능해 여러줄을 쓸 수 있다.
 		
 		
 		System.out.println("입력하신 숫자는 " + inputNumber + 

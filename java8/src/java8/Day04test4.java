@@ -10,15 +10,14 @@ public class Day04test4 {
 			
 			System.out.println("반지름을 입력하세요:");
 			int r = sc.nextInt();
-			System.out.println("원주의 값 :");
 			
+			System.out.println("원주의 값 :");
 			double result = 2*pi*r;
 			System.out.println(result);
-			System.out.println("원주의 값 :");
 			
-			result = 2*Math.PI*r;
+			/*result = 2*Math.PI*r;
 			System.out.println(result);
-			
+			*/
 			sc.close();
 		}
 }

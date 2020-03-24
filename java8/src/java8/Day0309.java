@@ -13,5 +13,7 @@ public class Day0309 {
 		//System.out.println(daegu >= global?"대구광역시":"대구시"); //질문? 참:거짓
 		
 		
+		
+		
 	}
 }
