@@ -22,6 +22,7 @@ public class Car { // 클래스는 대문자로 시작!!! 파일명과 동일한 클래스는 public�
 			
 			//매개변수의 개수와 종류 마음대로 변경할 수 있고 여러 생성자들을 만들어낼 수 있다. 오버로딩
 			//생성자는 필요한만큼 중복정의(생성) 할 수 있다.
+			//오버로딩하려면 매개변수는 무조건 달라야한다.
 			
 			Car(String company, String col, int maxSpeed){
 				this.company = company; //필드 company에 입력해야해서. this.company = car.company
