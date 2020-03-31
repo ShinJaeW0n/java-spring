@@ -14,5 +14,16 @@ public class Ex2 { //정렬할때 사용.
 				int res = a.compareTo(b);
 				System.out.println("비교결과: " + res);
 				
-	}
+				String c = "Java Programming Very Good";
+				String d = "java Programming";		
+													//대소문자 구분
+				boolean compare1 = c.regionMatches(false, 5, d, 5, 11);
+													//대소문자 구분x
+				boolean compare2 = c.regionMatches(true, 0, d, 0, 4);
+				boolean compare3 = c.regionMatches(false, 0, d, 0, 4);
+			
+				System.out.println(compare1);
+				System.out.println(compare2);
+				System.out.println(compare3);
+			}
 }
