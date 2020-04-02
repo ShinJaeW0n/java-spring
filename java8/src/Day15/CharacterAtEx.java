@@ -1,4 +1,6 @@
+package Day15;
 
+			//String 배열
 public class CharacterAtEx {
 				//원하는 위치에 있는 문자 1개를 character로 출력받는 것 : charAt(숫자);
 		public static void main(String[] args) {
@@ -6,7 +8,8 @@ public class CharacterAtEx {
 			char ch = str.charAt(4);
 			System.out.println(ch);
 
-		
+			
+			
 			for(int i = 0; i<str.length(); i++) {
 				//헬로월드 전부 출력
 				System.out.print(str.charAt(i));
@@ -45,6 +48,10 @@ public class CharacterAtEx {
 			
 			String str3 = str1.replace("자바", "java");
 			System.out.println(str3);
+			
+			String str5 = str1.replace(str1, "_");
+			System.out.println(str5);
+			
 			
 			System.out.println("=============");
 			
