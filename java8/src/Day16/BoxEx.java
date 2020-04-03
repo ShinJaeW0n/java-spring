@@ -17,14 +17,14 @@ public class BoxEx {
 		System.out.println(name2);
 		
 		
-		Apple apple = new Applee();
+		Apple apple = new Apple();
 		System.out.println(apple.hashcode);
 		bx.set(apple); // apple에서 object로 자동 형변환
-		Applee apple2 = (Applee)bx.get();	//object -> Apple 강제형변환
+		Apple apple2 = (Apple)bx.get();	//object -> Apple 강제형변환
 		System.out.println(apple2.hashcode);
 		
 	
-									//1.8버전부터
+							//1.8버전부터 뒤 <>안에 생략가능. 앞<>를 비워도 됨.
 		Box2<String> box = new Box2<>();
 		box.set(name);
 		name2 = box.get();
