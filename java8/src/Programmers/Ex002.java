@@ -1,36 +1,19 @@
 package Programmers;
 
 public class Ex002 {
-		public String solution(String s, int n) {
-			String answer = "";
-			char[] s2 = new char[s.length()];
+		public static void main(String[] args) {
+			Solution002 sol = new Solution002();
+			String [] s = {"AB" , "z", "a B z"}; 
+			int[] n = {1, 1, 4};
+			String[] result = new String[s.length];
 			
-			for(int i = 0; i < s2.length; i++) {
-				s2[i] = s.charAt(i);
+			for(int i =0; i<s.length; i++) {
+				result[i] = sol.solution(s[i], n[i]);
 				}
 			
-			
-			for(int i=0; i<s2.length; i++) {
-				if(s2[i] == '') {
-					continue;
-				}else if(s2[i] >= 'a' && s2[i] <= 'z') {
-					if(s2[i]+n > 'z') {
-						s2[i] = (char)((s2[i]+n)-26);
-					}else {
-						s2[i]+=i;
-					}
-				}
+			for(int i = 0; i<s.length; i++) {
+				System.out.println(s[i]);
 			}
 			
-			
-			
-				
-			
-				
-				
-				return answer;
-			}
-	
-	
-			
-}
+		}
+	}
