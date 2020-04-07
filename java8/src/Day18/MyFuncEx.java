@@ -11,10 +11,11 @@ public class MyFuncEx {
 			void method() {
 				//람다식
 				MyFunc fi = () ->{
-					System.out.println("outField: " + outField );
-					System.out.println("outField: " + MyFuncEx.this.outField + "\n" );
-					System.out.println("inField: " + inField );
+					System.out.println("outField: " + outField );//제일 가까이 있는 outField
+					System.out.println("outField: " + MyFuncEx.this.outField + "\n" );//MyFuncEx에 속해있는 outField
+					System.out.println("inField: " + inField );//제일 가까이 있는 inField
 					System.out.println("inField: " + this.inField + "\n" ); //this-나자신이 속해있는
+													
 				};
 				fi.method();
 				
