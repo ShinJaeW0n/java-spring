@@ -22,7 +22,7 @@ public class PieChart extends JPanel {
 			
 			
 			int startAngle = 0;
-			int pieSize = 200;
+			int pieSize;
 			int subtot = 0;
 			String param = "";
 			Font myFont = new Font(param, Font.PLAIN, 10);

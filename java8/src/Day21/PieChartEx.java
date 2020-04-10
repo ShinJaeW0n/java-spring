@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-//애플릿 실습문제 -1 실행문
+//애플릿 실습문제 실행문
 
 public class PieChartEx {
 
