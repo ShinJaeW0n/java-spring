@@ -31,7 +31,7 @@ public class BoxLayoutTest extends JFrame {
 			hhBox.add(Box.createHorizontalStrut(30));
 			hhBox.add(new JCheckBox("±ππŒ¿∫«‡"));
 			hhBox.add(Box.createHorizontalStrut(30));
-			hhBox.add(new JCheckBox("ø‹»Ø¿∫«‡"));
+			hhBox.add(new JCheckBox("ø‹»Ø∑Í∑Í"));
 			hhBox.add(Box.createHorizontalStrut(30));
 			hhBox.add(Box.createGlue());
 			JPanel llpanel = new JPanel(new BorderLayout());
