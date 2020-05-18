@@ -3,6 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -52,7 +53,11 @@
 		</div>
 	</nav>
 	<div class="container pt-3">
-		메인페이지입니다.
+	<div class = "jumbotron">
+		<h1>웹 사이트 소개</h1>
+		<p>이 웹 사이트는 JSP 로 제작했다.</p>
+		<a class = "btn btn-primary btn-lg" href = "#" role = "button">자세히 알아보기</a>
+	</div>
 	</div>
 
 	<!-- Optional JavaScript -->

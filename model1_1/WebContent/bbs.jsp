@@ -20,6 +20,13 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
 
 <title>메인페이지</title>
+	<style>
+		.bg-primary{
+			color : #F2CB61 !important;
+		}
+	
+	</style>
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -37,7 +44,8 @@
 				</li>
 				<li class="nav-item"><a class="nav-link active" href="bbs.jsp">게시판<span
 						class="sr-only">(current)</span></a></li>
-			</ul>
+				</ul>
+				
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -61,10 +69,11 @@
 			</ul>
 		</div>
 	</nav>
+	
 	<div class="container pt-3">
 		<div class="row">
 			<table class="table table-striped text-center table-bordered">
-				<thead class="thead-dark">
+				<thead class="text-white bg-secondary">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -73,11 +82,11 @@
 					</tr>
 				</thead>
 				<tbody>
-				<%
+				<%	//컬럼
 					for(Bbs bbs : list) {
 						out.println("<tr>");
 						out.println("<td>" + bbs.getBbsId() + "</td>");
-						out.println("<td>" + bbs.getBbsTitle() + "</td>");
+						out.println("<td style = 'width:100px;' class = 'text-left text-truncate px-4'><a href='view.jsp?bbsId=" + bbs.getBbsId() + "'>" + bbs.getBbsTitle() + "</a></td>");
 						out.println("<td>" + bbs.getUserId() + "</td>");
 						out.println("<td>" + bbs.getBbsDate() + "</td>");
 						out.println("</tr>");					
@@ -85,11 +94,37 @@
 				%>
 				</tbody>
 			</table>
+		</div>	
+		
+		 <!-- 이전 다음 버튼 -->
+		<div class = "clearfix"> <!-- float사용해서 clear 해줘야함. -->
+<!-- 			<button id = "pBtn" class = "btn btn-info float-left">이전</button> -->
+<!-- 			<button id = "nBtn" class = "btn btn-info float-left ml-1">다음</button> -->
+			<a href="write.jsp" class="btn btn-primary float-right" id="writeBtn">글쓰기</a>
+		
 		</div>
-		<button id = "pBtn" class = "btn btn-success float-left">이전</button>
-		<button id = "nBtn" class = "btn btn-success float-left ml-2">다음</button>
-		<a href="write.jsp" class="btn btn-primary float-right" id="writeBtn">글쓰기</a>
-	</div>
+			<div>
+			<!--<div class = "d-flex">  플렉스 박스 쓸때.-->
+				<ul class="pagination">
+				<!--  <ul class="pagination justify-center-center"> -->
+					<li class='page-item ml-auto <%=pageNumber <= 5 ? "disabled" : "" %>'><a <%=pageNumber <= 5 ? "tapindex= '-1'" : "" %>class="page-link" href="bbs.jsp?pageNumber=<%=pageNumber - bbsDAO.getWidthBlock()%>">&laquo;</a></li>
+					<li class="page-item <%= pageNumber == 1 ? "disabled" : ""%>"><a <%= pageNumber == 1 ? "tapindex='-1'" : ""%> class="page-link" href="bbs.jsp?pageNumber=<%=pageNumber -1 %>">&lt;</a></li>
+					<%
+						int startNumber = (bbsDAO.currentBlock(pageNumber) -1) * bbsDAO.getWidthBlock() + 1;
+						int endNumber = startNumber+bbsDAO.getWidthBlock() < bbsDAO.totalPage() + 1 ? startNumber+bbsDAO.getWidthBlock() : bbsDAO.totalPage() +1;
+						for(int i = startNumber; i< endNumber; i++){
+							
+					%>
+					<li class="page-item <%=pageNumber == i? "active" : ""%>"><a class="page-link" href="bbs.jsp?pageNumber=<%=i%>"><%=i%></a></li>
+					<%
+						}
+					%>
+					<li class="page-item <%=bbsDAO.totalPage() == pageNumber ? "disabled" : "" %>"><a <%= bbsDAO.totalPage() == pageNumber ? "tapindex='-1'" : ""%> class="page-link" href="bbs.jsp?pageNumber=<%=pageNumber +1 %>">&gt;</a></li>
+					<li class="page-item mr-auto <%=bbsDAO.totalPage() - pageNumber < 5 ? "disabled" : ""%>"><a <%= bbsDAO.totalPage() - pageNumber < 5 ? "tapindex='-1'" : ""%> class="page-link" href="bbs.jsp?pageNumber=<%=pageNumber + bbsDAO.getWidthBlock()%>">&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+		
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -98,34 +133,35 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	<script>
-		$(function() {
-			$("#nBtn").click(function() {
-				<%
-					int nPage = 0;
-					if(pageNumber >= bbsDAO.totalPage()){
-						nPage = bbsDAO.totalPage();
-					}else{
-						nPage = pageNumber+1;
-					}
-				%>
-				location.href = "bbs.jsp?pageNumber=<%=nPage%>";
-			});
+<!-- 	<script>
+
+
+ 		$(function() {
+		$("#nBtn").click(function() {
+
+ 					int nPage = 0;
+ 					if(pageNumber >= bbsDAO.totalPage()){
+ 						nPage = bbsDAO.totalPage();
+ 					}else{
+ 						nPage = pageNumber+1;
+ 					}
+
+<%-- 				location.href = "bbs.jsp?pageNumber=<%=nPage%>"; --%>
+ 			});
 			
 			$("#pBtn").click(function() {
-				<%
+<%-- 				<% --%>
 					int pPage = 0;
-					if(pageNumber <= 1){
-						 pPage = 1;
+ 					if(pageNumber <= 1){
 					}else{
 						 pPage = pageNumber-1;
-					}
-				%>
+				}
+<%-- 				%> --%>
 				
-				location.href = "bbs.jsp?pageNumber=<%=pPage%>";
-			});
+<%-- 				location.href = "bbs.jsp?pageNumber=<%=pPage%>"; --%>
 		});
-	</script>
+ 		});
+	</script> -->
 </body>
 </html>
 <%

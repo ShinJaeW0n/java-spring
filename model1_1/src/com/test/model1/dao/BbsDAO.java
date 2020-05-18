@@ -16,7 +16,9 @@ public class BbsDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-
+	private int widthBlock = 5;
+	private int pageRows = 10; 
+	
 	public BbsDAO() {
 		try {
 			Context init = new InitialContext();
@@ -95,20 +97,115 @@ public class BbsDAO {
 		return list;
 	}
 	
-	public int totalPage() {
-		String sql = "select count(*) from bbs where bbsAvailable = 1";
+	
+	public Bbs getBbs(int bbsId) {
+		Bbs bbs = new Bbs();
+		String sql = "select * from bbs where bbsId=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsId);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return rs.getInt(1) / 10 + 1; //5/10은 0이니까 +1 해줘야한다. 페이지 수
+			if(rs.next()) {
+				bbs.setBbsId(rs.getInt("bbsId"));
+				bbs.setBbsTitle(rs.getString("bbsTitle")); //bbsTitle
+				bbs.setUserId(rs.getString("userId"));
+				bbs.setBbsDate(rs.getString("bbsDate"));
+				bbs.setBbsContent(rs.getString("bbsContent"));
+				bbs.setBbsAvailable(rs.getInt("bbsAvailable"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		return 1; // 아무것도 없으면 1페이지 리턴
-
-	}
+		
+		return bbs;
+	}	
+		public int delete(int bbsId) {
+		String sql = "update bbs set bbsAvailable=0 where bbsId=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsId);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+			return -1;
 	
-}
+		}
+		
+		public int modify(String bbsTitle, String bbsContent, int bbsId) {
+			String sql = "update bbs set BbsTitle=? , BbsContent=? where bbsId=?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bbsTitle);
+				pstmt.setString(2, bbsContent);
+				pstmt.setInt(3, bbsId);
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+				return -1;
+		
+			}
+		
+		
+		//페이지 만들기.
+		
+		public int getWidthBlock() { //한 번에 볼 수 있는 페이지 블록의 수
+			return widthBlock;
+		}
+		
+		public int getPageRows() { //한 페이지당 볼 수 있는 글의 수
+			return pageRows;
+		}
+		
+		public int getViewList() { //게시판에 있는 총 글의 수
+			String sql = "select count(*) from bbs where bbsAvailabel=1";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) return rs.getInt(1);
+				return 0;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+				return -1;
+		}
+		
+		public int totalBlock() { //전체 블록의 수
+		 if(getViewList() % (widthBlock * pageRows) > 0) {
+			 return getViewList() / (widthBlock * pageRows) + 1;
+		 }
+		 return getViewList();
+		
+		
+		}
+		public int currentBlock(int pageNumber) { //현재 블록의 수
+			 if(pageNumber %  widthBlock > 0) {
+				 return pageNumber / widthBlock + 1;
+			 }
+			 return pageNumber / widthBlock;
+		}
+		
+		public int totalPage() { //전체 페이지 수를 계산하는 메소드
+			 if(getViewList() %  pageRows > 0) {
+				 return getViewList() / pageRows + 1;
+			 }
+			 return getViewList() / pageRows;
+		}
+		
+		public boolean nextPage(int pageNumber) { //리턴값의 true, false를 변경
+			 String sql = "select * from bbs where bbsId < ? and bbsAvailable=1";
+			 try {
+				 PreparedStatement pstmt = conn.prepareStatement(sql);
+				 pstmt.setInt(1, getNext() - (pageNumber-1)*10);
+				 rs = pstmt.executeQuery();
+				 while(rs.next()) {
+					 return false;
+				 }
+			 }catch(SQLException e) {
+				 e.printStackTrace();
+			 }
+			 return true;
+		}
+		
+	}
