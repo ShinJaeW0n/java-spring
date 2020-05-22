@@ -232,6 +232,7 @@ div#popup{
 	top : 50%;
 	transform : translate(-50%, -50%);
 	background: #fff;
+	z-index: 10000;
 }
 
 
@@ -279,3 +280,6 @@ body > div#hNav > p{
 body > div#hNav > p,a {
 	color: #222;
 }
+
+
+
