@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html 이미지 배치 연습2</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		
+		img{
+			display: block;
+		}
+		
+		.clearFix::before, .clearFix::after{
+			display: block;
+			content: "";
+		}
+		
+		.clearFix::after{
+			clear: both;
+		}
+		
+		header, aside, section, footer{
+			position: absolute;
+			top: 0;
+			left: 0;	
+			}
+		
+		aside{
+			top:166px;
+		}
+		
+		aside > div{
+			float: left;
+		}
+		
+		section{
+			top:166px;
+			left:206px;
+			background-image: url('../imgs/main_background.jpg');
+		}
+		
+		section > div{
+			float: left;
+		}
+		
+		section > div > .a3{
+			float: right;
+		}
+		
+		footer{
+			top: calc(166px + 599px);
+		}
+	
+	</style>
+
+</head>
+<body>
+	<header>
+		<div><img src = "imgs/top.jpg"  alt = "-"/></div>
+	</header>
+	<aside>
+		<div class = "left">
+			<img src = "imgs/left_edge.jpg" alt="-">
+		</div>
+		
+		<div class = "aLeft">
+			<img src = "imgs/navi_init.jpg" alt="-">
+		</div>
+	</aside>
+	
+	<section class = "clearFix">
+		<div class = "aRight">
+			<div class = "aR1">	
+			<img src = "imgs/beauty_01.jpg" alt="-">
+			</div>
+			<div class = "aR2">	
+			<img src = "imgs/main_top.jpg" alt="-">
+			</div>
+			<div class = "a3">		
+			<img src = "imgs/main_01.jpg" alt="-">
+			<img src = "imgs/main_02.jpg" alt="-">
+			<img src = "imgs/main_03.jpg" alt="-">
+			<img src = "imgs/main_04.jpg" alt="-">
+			<img src = "imgs/main_05.jpg" alt="-">
+			</div>
+			<div class = "a4">
+			<img src = "imgs/main_bottom.jpg" alt="-">
+			</div>
+		</div>
+		
+			<div class = "aRight3">
+			<img src = "imgs/beauty_02.jpg" alt="-">
+			</div>
+	</section>	
+	<footer>
+		<div><img src = "imgs/bottom.jpg" alt="-"></div>
+	</footer>
+
+</body>
+</html>

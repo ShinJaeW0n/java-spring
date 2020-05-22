@@ -1,0 +1,65 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+img{
+	display: block;
+}
+
+.clearFix::before, .clearFix::after{
+	display: block;
+	content: "";	
+}
+
+.clearFix::after{
+	clear: both;	
+}
+
+header, aside, section, footer{
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
+aside{ /*top 이미지 만큼 띄운다.*/
+	top:166px;
+}
+
+aside > div {
+	float: left;
+}
+
+.aRight{
+	background-image: url("imgs/navigation_background.gif");
+}
+
+.aRightBody1 > div > img{
+	margin-left: 9px;	
+}
+
+.aRightBody2 > div > img{
+	margin: 0 auto;
+	margin-bottom: 4px;
+}
+
+section{
+	top:166px;
+	left: 206px;
+	background-image: url('../imgs/main_background.jpg');
+}
+
+
+.content3 > div > img{
+	float: right;
+}
+
+section > div {
+	float: left;
+}
+
+footer{
+	top: calc(599px + 166px);
+}
