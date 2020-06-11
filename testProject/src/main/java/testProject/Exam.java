@@ -26,5 +26,10 @@ public class Exam {
 		for(int i=0; i<body2.size(); i++) {
 			System.out.println("¼øÀ§" + (i+1) + " : " + body2.get(i).text());
 		}
+		try {
+			Thread.sleep(1000*60*10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
